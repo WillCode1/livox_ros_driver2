@@ -31,6 +31,12 @@
 #include "lds.h"
 
 namespace livox_ros {
+typedef struct 
+{
+  int64_t high;
+  int64_t low;
+}time_stamp;
+
 
 /** Send pointcloud message Data to ros subscriber or save them in rosbag file */
 typedef enum {
@@ -95,6 +101,7 @@ class Lddc final {
 
  public:
   Lds *lds_;
+  time_stamp *pointt;
 
  private:
   void PollingLidarPointCloudData(uint8_t index, LidarDevice *lidar);
